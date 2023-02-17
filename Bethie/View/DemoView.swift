@@ -27,22 +27,26 @@ class DemoView: UIView {
     }
     
     func createRectangle() {
-        let path = UIBezierPath(rect: CGRect(x: min(firstPoint!.x, secondPoint!.x),
-                                             y: min(firstPoint!.y, secondPoint!.y),
-                                             width: abs(firstPoint!.x - secondPoint!.x),
-                                             height: abs(firstPoint!.y - secondPoint!.y)))
-        self.path = path
+        if let firstPoint = firstPoint, let secondPoint = secondPoint {
+            let path = UIBezierPath(rect: CGRect(x: min(firstPoint.x, secondPoint.x),
+                                                 y: min(firstPoint.y, secondPoint.y),
+                                                 width: abs(firstPoint.x - secondPoint.x),
+                                                 height: abs(firstPoint.y - secondPoint.y)))
+            self.path = path
+        }
     }
     
     func createTriangle() {
-        let path = UIBezierPath()
-        path.move(to: firstPoint!)
-        path.addLine(to: CGPoint(
-            x: secondPoint!.x,
-            y: firstPoint!.y))
-        path.addLine(to: secondPoint!)
-        path.close()
-        self.path = path
+        if let firstPoint = firstPoint, let secondPoint = secondPoint {
+            let path = UIBezierPath()
+            path.move(to: firstPoint)
+            path.addLine(to: CGPoint(
+                x: secondPoint.x,
+                y: firstPoint.y))
+            path.addLine(to: secondPoint)
+            path.close()
+            self.path = path
+        }
     }
     
     func createCircle() {
@@ -54,10 +58,12 @@ class DemoView: UIView {
     }
     
     func createLine() {
-        let path = UIBezierPath()
-        path.move(to: firstPoint!)
-        path.addLine(to: secondPoint!)
-        self.path = path
+        if let firstPoint = firstPoint, let secondPoint = secondPoint {
+            let path = UIBezierPath()
+            path.move(to: firstPoint)
+            path.addLine(to: secondPoint)
+            self.path = path
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -67,15 +73,16 @@ class DemoView: UIView {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let touch = touches.first!
-        let point = touch.location(in: self)
-        switch figure {
-        case .line:
-            createPencil(from: firstPoint!, to: point)
-            firstPoint = point
-            draw()
-        default:
-            print("Something Wrong")
+        if let touch = touches.first, var firstPoint = firstPoint {
+            let point = touch.location(in: self)
+            switch figure {
+            case .line:
+                createPencil(from: firstPoint, to: point)
+                firstPoint = point
+                draw()
+            default:
+                print("Something Wrong")
+            }
         }
     }
     
