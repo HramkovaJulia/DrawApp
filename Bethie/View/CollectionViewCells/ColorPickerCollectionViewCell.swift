@@ -48,8 +48,8 @@ class ColorPickerCollectionViewCell: UICollectionViewCell {
     func addSubviews() {
         contentView.addSubview(buttonColor)
         NSLayoutConstraint.activate([
-            buttonColor.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 36),
-            buttonColor.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -36),
+            buttonColor.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 26),
+            buttonColor.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -26),
             buttonColor.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
             buttonColor.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor),
         ])
@@ -61,7 +61,6 @@ extension ColorPickerCollectionViewCell: UIColorPickerViewControllerDelegate {
     func colorPickerViewController(_ viewController: UIColorPickerViewController, didSelect color: UIColor, continuously: Bool) {
         let color = viewController.selectedColor
         buttonColor.backgroundColor = color
-        print("button tapped")
         didChooseButtonColor?(color)
     }
 }

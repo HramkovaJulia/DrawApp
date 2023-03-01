@@ -41,8 +41,8 @@ class ViewController: UIViewController {
         view.addSubview(collectionView)
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 26),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -26),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 46),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             collectionView.heightAnchor.constraint(equalToConstant: 64)
         ])
     }
@@ -85,6 +85,9 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UndoCollectionViewCell.identifier, for: indexPath) as! UndoCollectionViewCell
             cell.didReturnTapped = {
                 self.demoView.undo()
+            }
+            cell.didClearTapped = {
+                self.demoView.clear()
             }
             return cell
         default:

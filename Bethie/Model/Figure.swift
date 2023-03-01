@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 enum Figure {
+    
     case circle
     case rectangle
     case triangle

@@ -54,8 +54,8 @@ class SwitchCollectionViewCell: UICollectionViewCell {
         
         titleToggleStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            titleToggleStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 36),
-            titleToggleStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -36),
+            titleToggleStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 26),
+            titleToggleStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -26),
             titleToggleStackView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             titleToggleStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
         ])

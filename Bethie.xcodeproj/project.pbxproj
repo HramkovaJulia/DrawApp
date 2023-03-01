@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58C601E829AF1E5400FE6A1A /* DemoViewMemento.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C601E729AF1E5400FE6A1A /* DemoViewMemento.swift */; };
+		58C601EA29AF1E6300FE6A1A /* DemoViewCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C601E929AF1E6300FE6A1A /* DemoViewCaretaker.swift */; };
 		58DC915C2998E749009FE671 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DC915B2998E749009FE671 /* AppDelegate.swift */; };
 		58DC915E2998E749009FE671 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DC915D2998E749009FE671 /* SceneDelegate.swift */; };
 		58DC91602998E749009FE671 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DC915F2998E749009FE671 /* ViewController.swift */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		58C601E729AF1E5400FE6A1A /* DemoViewMemento.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewMemento.swift; sourceTree = "<group>"; };
+		58C601E929AF1E6300FE6A1A /* DemoViewCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewCaretaker.swift; sourceTree = "<group>"; };
 		58DC91582998E749009FE671 /* Bethie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bethie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58DC915B2998E749009FE671 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58DC915D2998E749009FE671 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,7 +72,7 @@
 			children = (
 				58DC91A0299F4783009FE671 /* Controller */,
 				58DC919F299F3E7B009FE671 /* View */,
-				58DC9195299CA98B009FE671 /* Resource  */,
+				58DC9195299CA98B009FE671 /* Model */,
 				58DC9192299CA185009FE671 /* SupportingFiles */,
 				58DC9191299CA161009FE671 /* AppDelegate */,
 				58DC91692998E74B009FE671 /* Info.plist */,
@@ -94,12 +98,14 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
-		58DC9195299CA98B009FE671 /* Resource  */ = {
+		58DC9195299CA98B009FE671 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				58DC9196299CA9A3009FE671 /* Figure.swift */,
+				58C601E729AF1E5400FE6A1A /* DemoViewMemento.swift */,
+				58C601E929AF1E6300FE6A1A /* DemoViewCaretaker.swift */,
 			);
-			path = "Resource ";
+			path = Model;
 			sourceTree = "<group>";
 		};
 		58DC919E299F3E5A009FE671 /* CollectionViewCells */ = {
@@ -205,8 +211,10 @@
 				58DC91602998E749009FE671 /* ViewController.swift in Sources */,
 				58DC919B299F30C7009FE671 /* ColorPickerCollectionViewCell.swift in Sources */,
 				58DC91702998E79F009FE671 /* DemoView.swift in Sources */,
+				58C601EA29AF1E6300FE6A1A /* DemoViewCaretaker.swift in Sources */,
 				58DC9197299CA9A3009FE671 /* Figure.swift in Sources */,
 				58DC9194299CA21A009FE671 /* InstrumentsCollectionViewCell.swift in Sources */,
+				58C601E829AF1E5400FE6A1A /* DemoViewMemento.swift in Sources */,
 				58DC915C2998E749009FE671 /* AppDelegate.swift in Sources */,
 				58DC915E2998E749009FE671 /* SceneDelegate.swift in Sources */,
 			);

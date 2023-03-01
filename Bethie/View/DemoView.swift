@@ -9,7 +9,8 @@ import UIKit
 
 class DemoView: UIView {
     
-    private var demoViews: [DemoView] = []
+    var demoViews: [DemoView] = []
+    private let caretaker = DemoViewCaretaker()
     private var path: UIBezierPath!
     private var figure: Figure?
     private var firstPoint: CGPoint?
@@ -24,6 +25,33 @@ class DemoView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    func saveState() {
+        if let figure = figure {
+            let memento = DemoViewMemento(path: path,
+                                          fill: fill,
+                                          color: chooseColor,
+                                          figure: figure)
+            caretaker.addMemento(memento)
+        }
+    }
+    
+    private func setMemento(_ memento: DemoViewMemento) {
+        self.path = memento.path
+        self.figure = memento.figure
+        self.fill = memento.fill
+        self.chooseColor = memento.color
+        self.draw()
+    }
+    
+    func restoreState() {
+        let mementos = caretaker.getMementos()
+        for memento in mementos {
+            if let memento = memento {
+                setMemento(memento)
+            }
+        }
     }
     
     func createRectangle() {
@@ -99,11 +127,9 @@ class DemoView: UIView {
         if fill == false {
             shapeLayer.fillColor = UIColor.clear.cgColor
             shapeLayer.strokeColor = chooseColor.cgColor
-            print("empty")
         } else {
             shapeLayer.fillColor = chooseColor.cgColor
             shapeLayer.strokeColor = chooseColor.cgColor
-            print("fill")
         }
         self.layer.addSublayer(shapeLayer)
     }
@@ -127,6 +153,7 @@ class DemoView: UIView {
             default:
                 print("Something Wrong")
             }
+            saveState()
         }
     }
     
@@ -147,14 +174,31 @@ class DemoView: UIView {
     
     func selectColor(_ selected: UIColor) {
         chooseColor = selected
-        print(chooseColor)
     }
     
     func undo() {
         if let lastLayer = self.layer.sublayers?.last {
             lastLayer.removeFromSuperlayer()
         }
+        let mementos = caretaker.getMementos()
+        for memento in mementos {
+            if let memento = memento {
+                setMemento(memento)
+            }
+            caretaker.removeAllMementos()
+        }
+        
     }
     
+    func clear() {
+        layer.sublayers?.forEach { $0.removeFromSuperlayer() }
+        demoViews.removeAll()
+        // path.removeAll()
+        setNeedsDisplay()
+    }
 }
+
+
+
+
 

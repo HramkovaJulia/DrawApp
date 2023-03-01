@@ -84,8 +84,8 @@ class InstrumentsCollectionViewCell: UICollectionViewCell {
     
     func setConstraints() {
         NSLayoutConstraint.activate([
-            figureStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 46),
-            figureStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -46),
+            figureStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 26),
+            figureStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -26),
             figureStackView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
             figureStackView.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor),
         ])
